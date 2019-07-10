@@ -127,7 +127,7 @@ open class GrowingTextView: UITextView {
         }
     }
     
-    private func scrollToCorrectPosition() {
+    public func scrollToCorrectPosition() {
         if self.isFirstResponder {
             self.scrollRangeToVisible(NSMakeRange(-1, 0)) // Scroll to bottom
         } else {
@@ -178,7 +178,7 @@ open class GrowingTextView: UITextView {
     }
     
     // Limit the length of text
-    @objc func textDidChange(notification: Notification) {
+    @objc public func textDidChange(notification: Notification) {
         if let sender = notification.object as? GrowingTextView, sender == self {
             if maxLength > 0 && text.count > maxLength {
                 let endIndex = text.index(text.startIndex, offsetBy: maxLength)
